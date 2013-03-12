@@ -7,7 +7,6 @@ package enterprise.sessions;
 import enterprise.persistence.Player;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
-
 /**
  *
  * @author Cyril Cecchinel
