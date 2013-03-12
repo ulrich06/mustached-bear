@@ -4,6 +4,7 @@
  */
 package entreprise.sessions;
 
+import enterprise.persistence.Player;
 import java.io.Serializable;
 import javax.ejb.Remote;
 
@@ -24,7 +25,7 @@ public interface GameSessionRemote extends Serializable {
     
     public boolean opponentWin();
     
-    public void play(Choice choice);
+    public void play(int choice);
     
     
     

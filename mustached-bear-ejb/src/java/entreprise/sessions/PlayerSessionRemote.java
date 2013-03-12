@@ -4,6 +4,10 @@
  */
 package entreprise.sessions;
 
+import enterprise.persistence.Player;
+import enterprise.persistence.Room;
+import entreprise.exceptions.NotAuthorizedException;
+import entreprise.exceptions.NotFoundPlayerException;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Remote;
@@ -20,7 +24,7 @@ public interface PlayerSessionRemote extends Serializable {
     public boolean login(String login, String password) 
             throws NotAuthorizedException;
     
-    public Player searchPlayer(String id);
+    public Player searchPlayer(String id)
             throws NotFoundPlayerException;
     
     public boolean enterRoom(Room room);
