@@ -2,13 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package entreprise.sessions;
+package enterprise.sessions;
 
 import enterprise.persistence.Player;
-import enterprise.persistence.Room;
-import entreprise.exceptions.NotAuthorizedException;
-import entreprise.exceptions.NotFoundPlayerException;
-import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 
@@ -17,40 +13,38 @@ import javax.persistence.EntityManager;
  * @author Cyril Cecchinel
  */
 @Stateless
-public class PlayerSession implements PlayerSessionRemote{
-    
+public class GameSession implements GameSessionRemote{
     @javax.persistence.PersistenceContext(unitName="GameDB")
     private EntityManager em ;
-        
+    
     @Override
-    public void persist(Object obj) {
+    public void addPlayer(Player p) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean login(String login, String password) throws NotAuthorizedException {
+    public int getPlayerScore() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public Player searchPlayer(String id) throws NotFoundPlayerException {
+    public int getOpponentScore() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public boolean enterRoom(Room room) {
+    public boolean playerWin() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public String register(Player newPlayer) {
+    public boolean opponentWin() {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List getAllPlayers() {
+    public void play(int choice) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
-
     
 }

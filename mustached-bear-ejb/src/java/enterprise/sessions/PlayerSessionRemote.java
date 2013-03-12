@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package entreprise.sessions;
+package enterprise.sessions;
 
 import enterprise.persistence.Player;
 import enterprise.persistence.Room;
-import entreprise.exceptions.NotAuthorizedException;
-import entreprise.exceptions.NotFoundPlayerException;
+import enterprise.exceptions.NotAuthorizedException;
+import enterprise.exceptions.NotFoundPlayerException;
 import java.io.Serializable;
 import java.util.List;
 import javax.ejb.Remote;

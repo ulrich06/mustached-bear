@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package entreprise.exceptions;
+package enterprise.exceptions;
 
 /**
  *
  * @author Cyril Cecchinel
  */
-public class NotFoundPlayerException extends Exception{
+public class NotAuthorizedException extends Exception{
     
 }

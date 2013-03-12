@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package entreprise.sessions;
+package enterprise.sessions;
 
 import enterprise.persistence.Player;
 import java.io.Serializable;
