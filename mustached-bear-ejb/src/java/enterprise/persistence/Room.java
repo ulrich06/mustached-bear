@@ -21,6 +21,7 @@ public class Room implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    
     private String name;
     private ArrayList<Player> playersList;
     private Game game;
