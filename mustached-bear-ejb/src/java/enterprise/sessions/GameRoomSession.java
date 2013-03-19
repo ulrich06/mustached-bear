@@ -29,7 +29,7 @@ public class GameRoomSession implements GameRoomSessionLocal{
     
     @Override
     public void enterRoom(Player player) {       
-        room.addPlayer(player);
+        room.addPlayer(player); 
     }
 
     @Override

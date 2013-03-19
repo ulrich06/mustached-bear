@@ -30,7 +30,7 @@ public class Room implements Serializable {
     public Room(){
         
     }
-          
+            
     public static Room getInstance() {
         if (instance == null) {
             instance = new Room();
