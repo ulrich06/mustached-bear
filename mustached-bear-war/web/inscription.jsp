@@ -38,8 +38,7 @@ if (login != null && !"".equals(login))
     try 
     {
         InitialContext ic = new InitialContext();
-        Object o = ic.lookup("java:global/mustached-bear/mustached-bear-ejb/PlayerSession");
-        PlayerSession playSess = (PlayerSession) o;
+        PlayerSessionLocal playSess = (PlayerSessionLocal) ic.lookup("java:global/mustached-bear/mustached-bear-ejb/PlayerSession!enterprise.sessions.PlayerSessionLocal");
 
         Player player = new Player(login, password, mail);
         playSess.persist(player);
