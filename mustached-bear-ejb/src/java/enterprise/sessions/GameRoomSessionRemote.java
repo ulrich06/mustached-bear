@@ -23,7 +23,7 @@ public interface GameRoomSessionRemote extends Serializable{
     
     public List listPlayers();
     
-    public Game getGame();
+    public Game getGame(Object id);
     
     
 }

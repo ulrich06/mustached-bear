@@ -21,7 +21,7 @@ public class GameRoomSession implements GameRoomSessionRemote{
     private EntityManager em ;
     
     @Override
-    public void enterRoom(Player player) {
+    public void enterRoom(Player player) {       
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
@@ -32,12 +32,14 @@ public class GameRoomSession implements GameRoomSessionRemote{
 
     @Override
     public List listPlayers() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        List players = em.createNamedQuery("findAllPlayers").getResultList();
+        return players;
     }
 
     @Override
-    public Game getGame() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Game getGame(Object id) {
+        Game game = em.createNamedQuery("findGameById").setParameter("id", id).getFirstResult();
+        return game;
     }
     
 }
