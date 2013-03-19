@@ -6,6 +6,7 @@ package enterprise.sessions;
 
 import enterprise.persistence.Game;
 import enterprise.persistence.Player;
+import enterprise.persistence.Room;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -19,6 +20,8 @@ public class GameRoomSession implements GameRoomSessionRemote{
     
     @javax.persistence.PersistenceContext(unitName="GameDB")
     private EntityManager em ;
+    private Room room;
+
     
     @Override
     public void enterRoom(Player player) {       
@@ -32,13 +35,12 @@ public class GameRoomSession implements GameRoomSessionRemote{
 
     @Override
     public List listPlayers() {
-        List players = em.createNamedQuery("findAllPlayers").getResultList();
-        return players;
+        return room.getPlayersList();
     }
 
     @Override
     public Game getGame(Object id) {
-        Game game = em.createNamedQuery("findGameById").setParameter("id", id).getFirstResult();
+        Game game = em.find(Game.class, id);
         return game;
     }
     

@@ -5,7 +5,7 @@
 package enterprise.persistence;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,7 +23,7 @@ public class Room implements Serializable {
     private Long id;
     
     private String name;
-    private ArrayList<Player> playersList;
+    private List playersList;
     private Game game;
 
     public Room(){
@@ -38,12 +38,20 @@ public class Room implements Serializable {
         this.name = name;
     }
 
-    public ArrayList<Player> getPlayersList() {
+    public List getPlayersList() {
         return playersList;
     }
 
-    public void setPlayersList(ArrayList<Player> playersList) {
+    public void setPlayersList(List playersList) {
         this.playersList = playersList;
+    }
+    
+    public void addPlayer(Player player) {
+        this.playersList.add(player);
+    }
+    
+    public void removePlayer(Player player) {
+        this.playersList.remove(player);
     }
 
     public Game getGame() {
