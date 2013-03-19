@@ -12,6 +12,7 @@
         <title>Accueil</title>
     </head>
     <body>
+    <center>
         <h1>Welcome !</h1>
         <form>
         </form>
@@ -21,5 +22,6 @@
         <p>
         <a href="connexion.jsp"> Connexion </a>
         </p>
+    </center>
     </body>
 </html>

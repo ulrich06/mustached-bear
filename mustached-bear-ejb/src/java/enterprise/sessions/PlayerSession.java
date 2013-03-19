@@ -16,7 +16,6 @@ import javax.persistence.EntityManager;
  *
  * @author Cyril Cecchinel
  */
-@Stateless
 public class PlayerSession implements PlayerSessionLocal{
     
     @javax.persistence.PersistenceContext(unitName="GameDB")
