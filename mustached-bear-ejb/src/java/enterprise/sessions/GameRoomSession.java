@@ -22,15 +22,19 @@ public class GameRoomSession implements GameRoomSessionLocal{
     private EntityManager em ;
     private Room room;
 
+    public GameRoomSession() {
+        room = new Room();
+    }
+
     
     @Override
     public void enterRoom(Player player) {       
-        throw new UnsupportedOperationException("Not supported yet.");
+        room.addPlayer(player); 
     }
 
     @Override
     public void leaveRoom(Player player) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        room.removePlayer(player);
     }
 
     @Override
@@ -40,8 +44,7 @@ public class GameRoomSession implements GameRoomSessionLocal{
 
     @Override
     public Game getGame(Object id) {
-        Game game = em.find(Game.class, id);
-        return game;
+        return room.getGame();
     }
     
 }
