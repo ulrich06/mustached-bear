@@ -23,7 +23,7 @@ public class GameRoomSession implements GameRoomSessionLocal{
     private Room room;
 
     public GameRoomSession() {
-        room = Room.getInstance();
+        room = new Room();
     }
 
     
