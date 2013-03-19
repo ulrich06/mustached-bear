@@ -9,12 +9,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author momo
  */
 @Entity
+@NamedQueries(
+    value={@NamedQuery(name="findAllPlayers", query="select object(c) from Player c"),
+    @NamedQuery(name="getPlayer", query="select object(p) from Player p where p.login= :login and p.password= :password")}
+        )
 public class Player implements Serializable {
     
     

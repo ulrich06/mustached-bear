@@ -26,10 +26,7 @@ public interface PlayerSessionRemote extends Serializable {
     
     public Player searchPlayer(String id)
             throws NotFoundPlayerException;
-    
-    public boolean enterRoom(Room room);
-    
-    public String register(Player newPlayer);
+
     
     public List getAllPlayers();
     
