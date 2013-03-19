@@ -44,8 +44,7 @@ public class GameRoomSession implements GameRoomSessionLocal{
 
     @Override
     public Game getGame(Object id) {
-        Game game = em.find(Game.class, id);
-        return game;
+        return room.getGame();
     }
     
 }
