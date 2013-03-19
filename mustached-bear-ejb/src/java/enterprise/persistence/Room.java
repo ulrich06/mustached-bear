@@ -25,10 +25,19 @@ public class Room implements Serializable {
     private String name;
     private List playersList;
     private Game game;
+    private static Room instance;
 
     public Room(){
         
     }
+          
+    public static Room getInstance() {
+        if (instance == null) {
+            instance = new Room();
+        }
+        return instance;
+    }
+
     
     public String getName() {
         return name;

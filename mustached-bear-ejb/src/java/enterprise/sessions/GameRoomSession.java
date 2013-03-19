@@ -22,15 +22,19 @@ public class GameRoomSession implements GameRoomSessionRemote{
     private EntityManager em ;
     private Room room;
 
+    public GameRoomSession() {
+        room = Room.getInstance();
+    }
+
     
     @Override
     public void enterRoom(Player player) {       
-        throw new UnsupportedOperationException("Not supported yet.");
+        room.addPlayer(player);
     }
 
     @Override
     public void leaveRoom(Player player) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        room.removePlayer(player);
     }
 
     @Override
