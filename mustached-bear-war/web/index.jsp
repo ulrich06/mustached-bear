@@ -15,6 +15,11 @@
         <h1>Welcome !</h1>
         <form>
         </form>
-        <a href="iscription.jsp"> Inscription </a>
+        <p>
+        <a href="inscription.jsp"> Inscription </a>
+        </p>
+        <p>
+        <a href="connexion.jsp"> Connexion </a>
+        </p>
     </body>
 </html>
