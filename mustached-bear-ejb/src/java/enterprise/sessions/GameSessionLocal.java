@@ -6,14 +6,14 @@ package enterprise.sessions;
 
 import enterprise.persistence.Player;
 import java.io.Serializable;
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 /**
  *
  * @author Cyril Cecchinel
  */
-@Remote
-public interface GameSessionRemote extends Serializable {
+@Local
+public interface GameSessionLocal extends Serializable {
     
     public void addPlayer(Player p);
     

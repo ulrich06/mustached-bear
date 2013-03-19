@@ -12,7 +12,7 @@ import javax.persistence.EntityManager;
  * @author Cyril Cecchinel
  */
 @Stateless
-public class GameSession implements GameSessionRemote{
+public class GameSession implements GameSessionLocal{
     @javax.persistence.PersistenceContext(unitName="GameDB")
     private EntityManager em ;
     

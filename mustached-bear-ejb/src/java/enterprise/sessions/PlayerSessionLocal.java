@@ -4,20 +4,19 @@
  */
 package enterprise.sessions;
 
-import enterprise.persistence.Player;
-import enterprise.persistence.Room;
 import enterprise.exceptions.NotAuthorizedException;
 import enterprise.exceptions.NotFoundPlayerException;
+import enterprise.persistence.Player;
 import java.io.Serializable;
 import java.util.List;
-import javax.ejb.Remote;
+import javax.ejb.Local;
 
 /**
  *
  * @author Cyril Cecchinel
  */
-@Remote
-public interface PlayerSessionRemote extends Serializable {
+@Local
+public interface PlayerSessionLocal extends Serializable {
     
     public void persist(Object obj);
     
@@ -26,10 +25,7 @@ public interface PlayerSessionRemote extends Serializable {
     
     public Player searchPlayer(String id)
             throws NotFoundPlayerException;
-    
-    public boolean enterRoom(Room room);
-    
-    public String register(Player newPlayer);
+
     
     public List getAllPlayers();
     
