@@ -4,3 +4,8 @@
 /dist/
 /mustached-bear-war/dist/
 /mustached-bear-war/build/
+nbproject
+setup
+build.xml
+build
+dist
