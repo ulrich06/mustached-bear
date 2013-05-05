@@ -11,4 +11,9 @@
         <property name="driverClass" value="org.apache.derby.jdbc.ClientDriver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="jndi_projet" object-type="user" pool-name="derby_net_jeuDB_blaPool"/>
+    <admin-object-resource enabled="true" jndi-name="jms/defierMessage"  res-type="javax.jms.Queue"  res-adapter="jmsra">
+        <property name="Name" value="PhysicalQueue"/>
+    </admin-object-resource>
+    <connector-connection-pool name="jms/defierMessageFactoryPool"  connection-definition-name="javax.jms.QueueConnectionFactory"  resource-adapter-name="jmsra"/>
+    <connector-resource enabled="true" jndi-name="jms/defierMessageFactory" pool-name="jms/defierMessageFactoryPool"  />
 </resources>

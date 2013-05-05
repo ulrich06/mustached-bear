@@ -63,8 +63,8 @@ public class Player implements Serializable {
     String login;
     String password;
     String email;
-    boolean playing;
-    boolean waiting;
+    transient boolean playing;
+    transient boolean waiting;
     
     public Player()
     {
