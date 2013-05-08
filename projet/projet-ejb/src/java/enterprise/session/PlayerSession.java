@@ -8,6 +8,7 @@ import enterprise.entity.Player;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.ejb.LocalBean;
+import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 
 /**

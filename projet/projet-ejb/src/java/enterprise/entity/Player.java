@@ -4,6 +4,7 @@
  */
 package enterprise.entity;
 
+import enterprise.session.PlayerSession;
 import java.io.Serializable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -78,6 +79,8 @@ public class Player implements Serializable {
     String email;
     transient boolean playing;
     transient boolean waiting;
+    transient Player adv;
+    transient boolean defied;
     
     public Player()
     {
@@ -113,6 +116,15 @@ public class Player implements Serializable {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+    
+    public Player getAdv() {
+        return this.adv;
+    }
+    
+    public void defier(Player p) {
+        this.adv = p;
+        defied = true;
     }
 
     private Message createJMSMessageForjmsDefierMessage(Session session, Object messageData) throws JMSException {

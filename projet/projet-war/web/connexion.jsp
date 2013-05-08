@@ -4,6 +4,7 @@
     Author     : momo
 --%>
 
+<%@page import="enterprise.entity.Player"%>
 <%@page import="enterprise.session.GamingRoomSession"%>
 <%@page import="enterprise.session.PlayerSession"%>
 <%@page import="javax.naming.InitialContext"%>
@@ -39,10 +40,14 @@ if (login != null && !"".equals(login))
         
         if(playSess.login(login, password))
         {
-            room.enterRoom(playSess.searchPlayer(login));
+            Player p = playSess.searchPlayer(login);
+            room.enterRoom(p);
             room.getNbJoueur();
+            session.setAttribute("Session", playSess);
+            session.setAttribute("Player", p);
+            session.setAttribute("Room", room);
             String redirectURL = "room.jsp";
-            response.sendRedirect(redirectURL);   
+            response.sendRedirect(redirectURL);
         }
         else
         {   

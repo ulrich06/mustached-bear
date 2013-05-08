@@ -34,10 +34,13 @@
                 %>
                 <p>
                     <%=p.getLogin()%>
+                    <button onclick="window.open('defi.jsp')">Défier</button>
                 </p>
                 <%
             }
         %>
+        <hr>
+        [<a href="/projet-war/logout.jsp"> Deconnexion </a>]
     </center>
     </body>
 </html>
