@@ -31,7 +31,6 @@ public class Game implements Serializable {
 
     public Game() {
         String title = "Pierre Feuille Ciseau";
-        String description = "Jeu traditionnel de pauvre qui sont pas foutu de s'acheter un plateau et des pions";
     }
 
     public void setTitle(String title) {

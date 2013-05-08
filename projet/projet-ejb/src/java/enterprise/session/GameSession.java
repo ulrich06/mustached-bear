@@ -14,6 +14,10 @@ import java.util.List;
 import javax.ejb.Stateful;
 import javax.persistence.EntityManager;
 
+/**
+ *
+ * @author momo
+ */
 @Stateful
 public class GameSession implements Serializable {
 
@@ -72,9 +76,6 @@ public class GameSession implements Serializable {
             this.playerScore++;
         } else if (winner == 2) {
             this.computerScore++;
-        }
-        if (isFinished() && userWinner()) {
-            em.createNamedQuery("incGamesWon").setParameter("game", game).setParameter("player", player).executeUpdate();
         }
         return winner;
     }

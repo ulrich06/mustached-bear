@@ -3,26 +3,29 @@
     Created on : 8 mai 2013, 14:51:01
     Author     : momo
 --%>
+<%@page import="enterprise.entity.Player"%>
 <%@page import="javax.ejb.EJBException"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="enterprise.game.PierreFeuilleCiseaux"%>
+<%@page import="enterprise.session.GameSession"%>
 <%
 
-    IGameSession ig = null;
-    String play = request.getParameter("play");
-    if (play != null || session.getAttribute("session.IGameSession") == null) {
+    GameSession gs = null;
+    String game = "PierreFeuilleCiseaux";%>
+    <p><%=session.getAttribute("GameSession")%></p>
+    <%
+    if (session.getAttribute("GameSession") == null) {
         try {
             // First time we come on this page
             InitialContext ic = new InitialContext();
-            ig = (IGameSession) ic.lookup(I_GAME_SESSION);
-            ig.setPlayer(_player);
-            ig.setGame(game);
-            ig.newGame();
-            session.setAttribute("session.IGameSession", ig);
+            gs = (GameSession) ic.lookup("java:global/projet/projet-ejb/GameSession");
+            gs.setPlayer((Player)session.getAttribute("Player"));
+            gs.newGame();
+            session.setAttribute("GameSession", gs);
         } catch (EJBException ex) {
         }
     } else {
-        ig = (IGameSession) session.getAttribute("session.IGameSession");
+        gs = (GameSession) session.getAttribute("GameSession");
     }
 
     PierreFeuilleCiseaux.Choice userChoice = null;
@@ -35,11 +38,11 @@
     }
     int winner = -1;
     if (userChoice != null) {
-        winner = ig.play(userChoice);
+        winner = gs.play(userChoice);
     }
 %>
 <h2>Pierre Feuille Ciseaux</h2>
-<% if (!ig.isFinished()) {%>
+<% if (!gs.isFinished()) {%>
 <form method="POST" action="play.jsp" id="game">
     <input type="submit" name="pierre" class="boutonjeu" id="pierre" value="Pierre" />
     <input type="submit" name="feuille" class="boutonjeu" id="feuille" value="Feuille" />
@@ -48,7 +51,7 @@
 </form>
 <% } else {%>
 <p>La partie est terminée !</p>
-<% if (ig.userWinner()) {%>
+<% if (gs.userWinner()) {%>
 <b>Félicitations, vous avez gagné !</b>
 <% } else {%>
 <b>Dommage, vous avez perdu</b>
@@ -58,23 +61,21 @@
 <%}%>
 <fieldset class="score"><legend>Score</legend>
     <div style="width:350px; margin:auto;">
-        <p class="score"><%=ig.getPlayerScore()%><span class="playername">Vous</span></p>
+        <p class="score"><%=gs.getPlayerScore()%><span class="playername">Vous</span></p>
         <p class="score">-</p>
-        <p class="score"><%=ig.getComputerScore()%><span class="playername">Ordinateur</span></p>
+        <p class="score"><%=gs.getComputerScore()%><span class="playername">Ordinateur</span></p>
     </div>
 </fieldset>
 <br class="clear"> </br>
 <fieldset><legend>Dernier coup joué</legend>
     <p><%
         if (winner == 0) {
-        %>Egalité, vous avez tous les deux joué <%=ig.getLastUserChoice().toString()%><%
+        %>Egalité, vous avez tous les deux joué <%=gs.getLastUserChoice().toString()%><%
         } else if (winner == 1) {
-        %>Victoire, vous avez gagné avec <%=ig.getLastUserChoice().toString()%> contre <%=ig.getLastComputerChoice().toString()%><%
+        %>Victoire, vous avez gagné avec <%=gs.getLastUserChoice().toString()%> contre <%=gs.getLastComputerChoice().toString()%><%
         } else if (winner == 2) {
-        %>Défaite, vous avez perdu avec <%=ig.getLastUserChoice().toString()%> contre <%=ig.getLastComputerChoice().toString()%><%
+        %>Défaite, vous avez perdu avec <%=gs.getLastUserChoice().toString()%> contre <%=gs.getLastComputerChoice().toString()%><%
         }
         %>
     </p>
 </fieldset>
-
-<%@include file="inc/footer.jspf" %>

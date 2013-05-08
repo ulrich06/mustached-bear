@@ -8,15 +8,7 @@
 <%@page import="enterprise.session.GamingRoomSession"%>
 <%@page import="enterprise.session.PlayerSession"%>
 <%@page import="javax.naming.InitialContext"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Connexion</title>
-    </head>
-    <body>
-        <center>
+<%@include file="inc/header.jspf" %>
         <h2>Connexion</h2>
         <form method="post" action="connexion.jsp">
         Login : <input type="text" name="login" size="20" value=""><br/>
@@ -62,8 +54,4 @@ if (login != null && !"".equals(login))
 }
 %>
 
-<hr>
-[<a href="/projet-war/index.jsp"> HOME </a>]
-</center>
-</body>
-</html>
+<%@include file="inc/footer.jspf" %>
