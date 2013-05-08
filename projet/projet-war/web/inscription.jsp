@@ -6,20 +6,15 @@
 <%@page import="enterprise.entity.Player"%>
 <%@page import="enterprise.session.PlayerSession"%>
 <%@page import="javax.naming.InitialContext"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@include file="inc/header.jspf" %>
 
-<head><title> Inscription </title></head>
-
-<body bgcolor="white">
-<center>
 <h2>Inscription</h2>
 <p>
 <form method="post" action="inscription.jsp">
 Login : <input type="text" name="login" size="20" value=""><br/>
 Password : <input type="password" name="pwd" size="20" value=""><br/>
 E-mail : <input type="text" name="mail" size="20" value=""><br/>
+<p>
 <p>
 <input type="submit" name="submit" value="Submit">
 </p>
@@ -51,8 +46,4 @@ Nouveau joueur :
 }
 %>
 
-<hr>
-[<a href="/projet-war/index.jsp"> HOME </a>]
-</center>
-</body>
-</html>
+<%@include file="inc/footer.jspf" %>

@@ -1,0 +1,20 @@
+<%@ page pageEncoding="UTF-8" %>
+
+					<div style="clear: both;">&nbsp;</div>
+				</div>
+				<!-- end #content -->
+				<div id="sidebar">
+				</div>
+				<!-- end #sidebar -->
+				<div style="clear: both;">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+	<!-- end #page -->
+</div>
+<div id="footer">
+	<p>Projet réalisé par Cyril Cecchinel - Frédéric Guégan - Matthieu Maugard - C'était bien de la merde !</p>
+</div>
+<!-- end #footer -->
+</body>
+</html>
