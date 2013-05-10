@@ -8,11 +8,11 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="enterprise.game.PierreFeuilleCiseaux"%>
 <%@page import="enterprise.session.GameSession"%>
+<%@include file="inc/header.jspf" %>
 <%
 
     GameSession gs = null;
     String game = "PierreFeuilleCiseaux";%>
-    <p><%=session.getAttribute("GameSession")%></p>
     <%
     if (session.getAttribute("GameSession") == null) {
         try {
@@ -57,7 +57,9 @@
 <b>Dommage, vous avez perdu</b>
 <% }%>
 <br />
-<a href="room.jsp">Retour à la salle de jeu</a>
+<a href="room.jsp">Aller à la salle de jeu</a>
+<p></p>
+<a href="play.jsp">Rejouer contre l'ordinateur</a>
 <%}%>
 <fieldset class="score"><legend>Score</legend>
     <div style="width:350px; margin:auto;">
@@ -79,3 +81,4 @@
         %>
     </p>
 </fieldset>
+<%@include file="inc/footer.jspf" %>

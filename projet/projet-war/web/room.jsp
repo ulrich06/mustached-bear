@@ -31,4 +31,8 @@
                 <%
             }
         %>
+        <p></p>
+        <form method="post" action="play.jsp">
+            <input type="submit" name="submit" value="Jouer contre l'ordinateur">
+        </form>
 <%@include file="inc/footer.jspf" %>
