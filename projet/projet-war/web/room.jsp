@@ -9,7 +9,7 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@include file="inc/header.jspf" %>
         <h1> Salle d'attente </h1>
-        <p> Nombre de joueur connecté : 
+        <p> Nombre de joueur connect? : 
         <%
             // Set refresh, autoload time as 5 seconds
             response.setIntHeader("Refresh", 5);
@@ -26,7 +26,6 @@
                 %>
                 <p>
                     <%=p.getLogin()%>
-                    <button onclick="window.open('defi.jsp')">Défier</button>
                 </p>
                 <%
             }
